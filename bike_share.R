@@ -1,4 +1,5 @@
 # install and load  packages needed for the project
+-------------------------------------------------------------------------
 install.packages("tidyverse")
 library(tidyverse)
 install.packages("lubridate")
@@ -25,4 +26,23 @@ bike_share_202104 <- read_csv("C:/Users/User/Documents/bike_share_project/202104
 bike_share_202105 <- read_csv("C:/Users/User/Documents/bike_share_project/202105-divvy-tripdata.csv")
 bike_share_202106 <- read_csv("C:/Users/User/Documents/bike_share_project/202106-divvy-tripdata.csv")
 bike_share_202107 <- read_csv("C:/Users/User/Documents/bike_share_project/202107-divvy-tripdata.csv")
+--------------------------------------------------------------------------------------------------------
+# To check if the column names  are consistent
 colnames(bike_share_202004)
+colnames(bike_share_2020_Q1)
+# The column names are consistent and do not need to be renamed or changed
+----------------------------------------------------------------------------------------------------------
+#To check for attributes consistency
+str(bike_share_2020_Q1)
+str(bike_share_202004)
+------------------------------------------------------------------------------------------------------------
+# To convert from char to datetime format or POSIXct
+bike_share_202004$started_at <- ymd_hms(bike_share_202004$started_at)
+bike_share_202004$ended_at <- ymd_hms(bike_share_202004$ended_at)
+--------------------------------------------------------------------------------------------------------------------
+# Since the columns are consistent we merge them into a single dataframe
+bike_rides <- rbind(bike_share_2020_Q1,bike_share_202004,bike_share_202005,bike_share_202006,bike_share_202007,bike_share_202008,bike_share_202009,bike_share_202010,bike_share_202011,bike_share_202012,bike_share_202101,bike_share_202102,bike_share_202103,bike_share_202104,bike_share_202105,bike_share_202106,bike_share_202107)
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Cleaning the data
+
+
